@@ -1,0 +1,9 @@
+1. An easy way to prune a lot of states is by analyzing deadlocks (situations where the game has no solution). Deadlocks can occur when boxes are at a corner or when boxes are at a wall and their storage points are not located along the same wall or at the box locations.
+
+2. When checking for deadlocks, it is also important to consider the obstacles in the scene, not only the walls. For example, a corner can form between an obstacle and a wall, forming a valid deadlock.
+
+3. It can be helpful to store previous data, as these can be reused in later iterations. An example of this is storing the previous state of boxes and returning the previous heuristic value when boxes have not moved (only the robot has moved). 
+
+4. In terms of use of information, do not loop more than once through a set of objects. For example, for returning the manhattan heuristic within your alternate heuristic, compute the manhattan heuristic as you iterate through boxes within your alternate heuristic, avoiding the need to call the manhattan heuristic function at the end and looping through the boxes again.
+
+5. Many lookup operations can be simplified through the use of a hash table, and dictionaries are perfect for that. The use of hash tables can avoid having to loop through all boxes and all storage points, as all required information is indexed into the table.
